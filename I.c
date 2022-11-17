@@ -2,29 +2,27 @@
 #include <stdio.h>
 
 int main(void) {
-	// your code goes here
-	int t;
-	scanf("%d",&t);
-	while(t--)
-	{
-	    char x[11],y[11];
-	    int check;
-	    scanf("%s%s",x,y);
-	    for(int i=0;x[i]!='\0';i++)
-	    {
-	        if( x[i]==y[i] || x[i]=='?' || y[i]=='?' )
-	        {
-	            check=1;
-	        }
-	        else
-	        {
-	            check=0;
-	            break;
-	        }
-	    }
-	    if(check) printf("Yes\n");
-	    else printf("No\n");
-	    
-	}
-	return 0;
+  #ifndef ONLINE_JUDGE
+        freopen("input.txt", "r", stdin); 
+        freopen("output.txt", "w", stdout);
+    #endif
+
+    int t, i;
+    scanf("%d",&t);
+    
+    for (i = 0; i < t; i++) {
+        int count = 0, j;
+        char x[10], y[10];
+        scanf("%s%s", &x, &y);
+        for (j = 0; x[j] != '\0'; j++) {
+            if (x[j] == y[j] || x[j] == '?' || y[j] == '?') count = 1;
+            else {
+                count = 0;
+                break;
+            }
+        }
+        if (count) printf("YES\n");
+        else printf("NO\n");  
+    }
+
 }
