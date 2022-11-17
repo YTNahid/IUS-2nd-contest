@@ -1,33 +1,24 @@
-// https://codeforces.com/problemset/problem/798/A
+// https://www.codechef.com/problems/TWOSTR
 #include <stdio.h>
-#include <string.h>
 
-int main() {
-    int i, length, x = 0;
-    char s[15];
+int main(void) {
 
-    gets(s);
+    int t, i;
+    scanf("%d",&t);
     
-    length = strlen(s);
-
-    if (length > 2) {
-        for(i = 0; i < length; i++) {
-            if(s[i] != s[length-i-1]) {
-                s[i] = s[length-i-1];
+    for (i = 0; i < t; i++) {
+        int count = 0, j;
+        char x[10], y[10];
+        scanf("%s%s", &x, &y);
+        for (j = 0; x[j] != '\0'; j++) {
+            if (x[j] == y[j] || x[j] == '?' || y[j] == '?') count = 1;
+            else {
+                count = 0;
                 break;
             }
         }
-    }
-    
-    for (i = 0; i < length; i++) {
-        if (s[i] != s[length-i-1]){
-            printf("NO");
-            x = 1;
-            break;
-        }
+        if (count) printf("YES\n");
+        else printf("NO\n");
     }
 
-    if (x == 0) {
-        printf("YES");
-    }
 }
